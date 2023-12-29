@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "33306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    volumes:
+      - ./mysql_container/data:/var/lib/mysql
+      - ./mysql_container/log:/var/log/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql:
